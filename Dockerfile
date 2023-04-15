@@ -4,4 +4,6 @@ RUN apt-get update && \
 WORKDIR /app
 COPY ip.sh .
 RUN chmod +x ip.sh
+RUN addgroup app && adduser --system --shell /bin/bash --ingroup app app
+USER app
 CMD ["/bin/bash","./ip.sh"]
